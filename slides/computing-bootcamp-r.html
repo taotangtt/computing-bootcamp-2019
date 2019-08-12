@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Computing Bootcamp 2019</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Shawn Santo" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Computing Bootcamp 2019
+## R / RStudio and Version Control
+### Shawn Santo
+### 08-19-19
+
+---
+
+
+
+
+class: inverse, center, middle
+
+# Preliminaries
+
+---
+
+## GitHub account
+
+A couple things to get everyone on the same page
+
+- If you don't have one, sign up for a GitHub account (it takes 1 min.)
+    - Go to https://github.com/join
+    - Enter your information
+    - Pick the `Unlimited public repositories for free.` plan
+    
+A few suggestions on picking a GitHub username:
+
+- Incorporate your actual name! People like to know who they’re dealing with. 
+  Also makes your username easier for people to guess or remember.
+
+- Pick a username you will be comfortable revealing to your future boss.
+
+- Shorter is better than longer.
+
+- Be as unique as possible in as few characters as possible. In some settings 
+  GitHub auto-completes or suggests usernames.
+
+- Make it timeless. Don’t highlight your current university, employer, or 
+  place of residence.
+
+- Avoid words laden with special meaning in programming.
+
+---
+
+## Access DSS RStudio servers
+
+- Go to 
+    - PhD: http://smith.stat.duke.edu:8787/
+    - MS: http://saxon.stat.duke.edu:8787/
+    - UG: http://gort.stat.duke.edu:8787/
+
+- Log in with your Duke `netid` and password
+    
+- If you cannot access the servers,
+    - Download R on your computer [here](http://archive.linux.duke.edu/cran/)
+    - Download RStudio [here](https://www.rstudio.com/products/rstudio/download/)
+
+---
+
+## Today's materials
+
+Everything from today will be available on my GitHub account at
+https://github.com/.
+
+---
+
+class: inverse, center, middle
+
+# Responsible research and reproducibility
+
+---
+
+## Seizure study retracted after authors realize data got "terribly mixed"
+
+From the authors of **Low Dose Lidocaine for Refractory Seizures in 
+Preterm Neonates**:
+
+*"The article has been retracted at the request of the authors. After 
+carefully re-examining the data presented in the article, they identified 
+that data of two different hospitals got terribly mixed. The published 
+results cannot be reproduced in accordance with scientific and clinical 
+correctness."*
+
+Source: http://retractionwatch.com/2013/02/01/seizure-study-retracted-after-authors-realize-data-got-terribly-mixed/
+
+---
+
+## Bad spreadsheet merge kills depression paper, quick fix resurrects it
+
+- The authors informed the journal that the merge of lab results and other 
+survey data used in the paper resulted in an error regarding the 
+identification codes. Results of the analyses were based on the data set 
+in which this error occurred. Further analyses established the results 
+reported in this manuscript and interpretation of the data are not correct.
+
+- **Original conclusion:** Lower levels of CSF IL-6 were associated with 
+current depression and with future depression [...].
+
+- **Revised conclusion:** Higher levels of CSF IL-6 and IL-8 were 
+associated with current depression [...].
+
+Source: http://retractionwatch.com/2014/07/01/bad-spreadsheet-merge-kills-depression-paper-quick-fix-resurrects-it/
+
+---
+
+## Reproducibility: why should we care?
+
+1. Convince researchers to adopt a reproducible research workflow
+
+2. Train new researchers who don’t have any other workflow
+
+---
+
+## Reproducible data analysis
+
+- Scriptability `\(\rightarrow\)` R
+
+- Literate programming `\(\rightarrow\)` R Markdown
+
+- Version control `\(\rightarrow\)` git / GitHub
+
+---
+
+## Donald Knuth "Literate Programming (1983)"
+
+"Let us change our traditional attitude to the construction of programs: 
+Instead of imagining that our main task is to instruct a *computer* what 
+to do, let us concentrate rather on explaining to *human beings* what we 
+want a computer to do."
+
+"The practitioner of literate programming [...] strives for a program that 
+is comprehensible because its concepts have been introduced in an order 
+that is best for human understanding, using a mixture of formal and 
+informal methods that reinforce each other."
+
+- These ideas have been around for years!
+- and tools for putting them to practice have also been around
+- but they have never been as accessible as the current tools
+
+---
+
+## Reproducibility checklist
+
+- Are the tables and figures reproducible from the code and data?
+- Does the code actually do what you think it does?
+- In addition to what was done, is it clear *why* it was done? (e.g., how 
+were parameter settings chosen?)
+- Can the code be used for other data?
+- Can you extend the code to do other things?
+
+---
+
+## Ambitious goal
+
+We need an environment where
+
+- data, analysis, and results are tightly connected, or better yet, 
+inseparable
+
+- reproducibility is built in
+    + the original data remains untouched
+    + all data manipulations and analyses are inherently documented
+
+- documentation is human readable and syntax is minimal
+
+---
+
+## Toolkit
+
+![](img/toolkit.png)
+
+---
+
+## What is markdown?
+
+- Markdown is a lightweight markup language for creating HTML (or XHTML) 
+documents.
+
+- Markup languages are designed to produce documents from human readable 
+text (and annotations).
+
+- Some of you may be familiar with LaTeX. This is another (less human 
+friendly) markup language for creating pdf documents.
+
+- Why I love Markdown:
+    + Easy to learn and use.
+    + Focus on **content**, rather than **coding** and debugging 
+    **errors**.
+    + Once you have the basics down, you can get fancy and add HTML,
+    JavaScript, and CSS.
+---
+
+.pull-left[
+  ## Something simple
+  &lt;br/&gt;
+  ![](img/simple-rmd.png)
+]
+
+.pull-right[
+  ## Something fancy
+  &lt;br/&gt;
+  ![](img/fancy-rmd.png)
+]
+
+---
+
+    
+## Why should I use markdown?
+
+If you have an annoying process for authoring for the web ...
+
+or
+
+If you avoid authoring for the web, because you're not sure how ...
+
+**start writing in Markdown**!
+
+---
+
+
+## R Markdown resources
+
+- Go to `Help &gt; Cheatsheets` and select
+    - R Markdown Cheat Sheet
+    - R Markdown Reference Guide
+    
+- Check out the official R Markdown book: 
+  [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) 
+  by Yihui Xie, J. J. Allaire, and Garrett Grolemund
+  
+- Check out 
+  [bookdown: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown/) by Yihui Xie.
+
+- Take a look at [RPubs](http://rpubs.com/) web published R Markdown documents.
+---
+
+class: inverse, center, middle
+
+# R / RStudio
+
+---
+
+## R / RStudio
+
+Rather than use the R graphical user interface we will use RStudio. 
+RStudio is a free and open-source integrated development environment (IDE) for 
+R.
+
+- To access the DSS RStudio server, go to 
+    + PhD: http://smith.stat.duke.edu:8787/
+    + MS: http://saxon.stat.duke.edu:8787/
+    + UG: http://gort.stat.duke.edu:8787/
+
+- Log in with your `netid` and password
+
+---
+
+
+## Getting started today
+
+In order to get started, you need to obtain the Rmd file from GitHub. The
+steps below will give you access to it and everything else we introduce today.
+
+1. Log in to GitHub
+
+2. Navigate to https://github.com/shawnsanto/STT191
+
+3. Fork the repository
+
+4. Copy the link under `Clone or Download` to clone with HTTPS
+
+5. In RStudio go to `File &gt; New Project &gt; Version Control &gt; Git`
+
+6. Paste the URL, that you copied in step 4, in the box under `Repository URL:`
+
+7. Open file `gapminder.Rmd`
+
+You now should have all the files in the repository in a directory on the
+server or your own computer.
+
+---
+
+## R packages
+
+- Packages are the fundamental units of reproducible R code. They include 
+reusable R functions, the documentation that describes how to use them, 
+and sample data.
+
+- In the following exercises we'll use the **tidyverse** package
+    + The tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.
+    + The core tidyverse package consists of **ggplot2**, **tibble**, **tidyr**, **readr**, **purrr**, **dplyr**, **stringr**, and **forcats** packages.
+    
+- This package is already installed for you on the server, but elsewhere you can 
+install it by running the following in the *Console*:
+
+
+```r
+install.packages("tidyverse")
+```
+
+- You need to load this package with
+
+
+```r
+library(tidyverse)
+```
+
+- You only need to install a package once, but you must load it with function
+  `library()` each R session.
+
+---
+
+## A note on workspaces
+
+- Your R Markdown document and your Console do not share workspaces
+
+- This is good for reproducibility, but can sometimes result in frustrating 
+errors
+
+- This also means any packages needed for your analysis need to be loaded in 
+your R Markdown document as well
+
+---
+
+## `gapminder.Rmd`
+
+Read in the data and store it as an object named `gap`.
+
+
+```r
+gap &lt;- read_csv("https://bit.ly/gap_data")
+```
+
+Function `read_csv()` is part of package `readr`, which is automatically loaded
+from package `tidyverse`. Function `read_csv()` not only reads in the data, but
+it ensures object `gap` is a neatly formated data frame - known as a tibble.
+
+---
+
+## Examine `gap`
+
+Let's look at the first 10 rows of `gap`.
+
+
+```r
+gap %&gt;%
+  slice(1:10)
+```
+
+```
+## # A tibble: 10 x 6
+##    country             continent  year lifeExp       pop gdpPercap
+##    &lt;chr&gt;               &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+##  1 United Kingdom      Europe     1967    71.4  54959000    14143.
+##  2 Eritrea             Africa     2007    58.0   4906585      641.
+##  3 Trinidad and Tobago Americas   1997    69.5   1138101     8793.
+##  4 Taiwan              Asia       2002    77.0  22454239    23235.
+##  5 Kuwait              Asia       2007    77.6   2505559    47307.
+##  6 Brazil              Americas   1987    65.2 142938076     7807.
+##  7 Cameroon            Africa     1957    40.4   5359923     1313.
+##  8 Hungary             Europe     1982    69.4  10705535    12546.
+##  9 Iceland             Europe     1952    72.5    147962     7268.
+## 10 Turkey              Europe     1952    43.6  22235677     1969.
+```
+
+---
+
+## Tidy data
+
+![](img/tidy-data.png)
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+Source: Grolemund and Wickham, R for Data Science, http://r4ds.had.co.nz/
+
+---
+
+## Exercise 1
+
+Take a glimpse at the data set with function `glimpse()`.
+
+
+```r
+glimpse(gap)
+```
+
+```
+## Observations: 1,363
+## Variables: 6
+## $ country   &lt;chr&gt; "United Kingdom", "Eritrea", "Trinidad and Tobago", ...
+## $ continent &lt;chr&gt; "Europe", "Africa", "Americas", "Asia", "Asia", "Ame...
+## $ year      &lt;dbl&gt; 1967, 2007, 1997, 2002, 2007, 1987, 1957, 1982, 1952...
+## $ lifeExp   &lt;dbl&gt; 71.360, 58.040, 69.465, 76.990, 77.588, 65.205, 40.4...
+## $ pop       &lt;dbl&gt; 54959000, 4906585, 1138101, 22454239, 2505559, 14293...
+## $ gdpPercap &lt;dbl&gt; 14142.8509, 641.3695, 8792.5731, 23235.4233, 47306.9...
+```
+
+---
+
+## Exercise 1
+
+How many variables and observations are in `gap`? What are the variable types
+for the variables in `gap`?
+
+Variable | Type
+---------|----------
+country  | character
+continent| character
+year     | double
+lifeExp  | double
+pop      | double
+gdpPercap| double
+
+---
+
+## Exercise 2
+
+### Part 1
+
+Create a plot of life expectancy versus year for the United States.
+
+
+```r
+gap_usa &lt;- gap %&gt;% 
+  filter(country == "United States")
+
+ggplot(data = gap_usa, mapping = aes(x = year, y = lifeExp)) +
+  geom_point()
+```
+
+---
+
+## Exercise 2
+
+### Part 1
+
+Create a plot of life expectancy versus year for the United States.
+
+&lt;img src="computing-bootcamp-r_files/figure-html/usa-plot-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Exercise 2
+
+### Part 2
+
+Create a plot of life expectancy verses GDP per Capita for Canada. Set the
+color of the points to be red and connect them with a solid black line.
+
+&lt;img src="computing-bootcamp-r_files/figure-html/canada-plot-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+
+## Exercise 2
+
+### Part 3
+
+Create a plot of life expectancy versus GDP per Capita based on all countries
+in Africa in 1992. Set the color to be purple.
+
+&lt;img src="computing-bootcamp-r_files/figure-html/africa-plot-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Exercise 2
+
+### Part 2
+
+Create a plot of life expectancy verses GDP per Capita for Canada. Set the
+color of the points to be red and connect them with a solid black line.
+
+
+```r
+gap_ca &lt;- gap %&gt;% 
+  filter(country == "Canada")
+
+ggplot(data = gap_ca, mapping = aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(color = "red") +
+  geom_line()
+```
+
+---
+
+## Exercise 2
+
+### Part 3
+
+Create a plot of life expectancy versus GDP per Capita based on all countries
+in Africa in 1992. Set the color to be purple.
+
+
+```r
+gap_africa &lt;- gap %&gt;% 
+  filter(continent == "Africa", year == 1992)
+
+ggplot(data = gap_africa, mapping = aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(color = "purple")
+```
+
+---
+
+## Exercise 3
+
+### Part 1
+
+Create a plot of life expectancy versus GDP per Capita based on all the
+countries in Africa and Europe in 1992. Set the point colors to code for the
+two continents.
+
+*Hints*:
+
+1. Filter `gap` so it only contains observations from Africa or Europe.
+   Do this with `continent %in% c("Africa", "Europe")`. Also, filter so that
+   the observations are only from 1992. Separate multiple conditions with
+   commas.
+   
+2. Add another aesthetic to the plot. Instead of just `x` and `y`, include
+   `color = continent` inside function `aes()`. The color of the points will
+   be set for each level of the variable `continent`.
+
+---
+
+## Exercise 3
+
+### Part 2
+
+Create comparison boxplots by continent of GDP per Capita for the year 2007.
+Fill the boxplots in with the color dark green.
+
+*Hints*:
+
+1. Filter `gap` so it only contains observations from 2007.
+
+2. Inside `aes()` set `x = continent, y = gdpPercap`.
+
+3. Use `geom_boxplot()` and set the fill to dark green.
+
+---
+
+## Exercise 3
+
+### Part 1
+
+
+```r
+gap_ae &lt;- gap %&gt;% 
+  filter(continent %in% c("Africa", "Europe"), year == 1992)
+
+ggplot(data = gap_ae, mapping = aes(x = lifeExp, y = gdpPercap,
+                                    color = continent)) +
+  geom_point()
+```
+
+### Part 2
+
+
+```r
+gap_cont &lt;- gap %&gt;% 
+  filter(year == 2007)
+
+ggplot(data = gap_cont, 
+       mapping = aes(x = continent, y = gdpPercap)) +
+  geom_boxplot(fill = "darkgreen")
+```
+
+---
+
+## R / Rstudio resources
+
+- Some useful resources from RStudio: 
+  https://www.rstudio.com/resources/cheatsheets/
+    + RStudio IDE Cheat Sheet
+    + R Markdown Cheat Sheet
+    + R Markdown Reference Guide
+    + Data Import Cheat Sheet
+    + Data Transformation Cheat Sheet
+    + Data Visualization Cheat Sheet
+    
+Some of the above cheatsheers are availalbe in RStudio: `Help &gt; Cheatsheets`
+
+
+---
+
+## More R resources
+
+- Beginner
+
+- Advanced
+
+- Miscellaneous
+
+---
+
+---
+
+class: inverse, center, middle
+
+# Version control with git and GitHub
+
+---
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

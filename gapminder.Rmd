@@ -1,0 +1,108 @@
+---
+title: "Gapminder Data Analysis"
+author: "Shawn Santo"
+date: "2019-08-19"
+output: 
+  html_document: 
+    keep_md: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      message = FALSE,
+                      fig.width = 7)
+```
+
+
+## Load packages
+
+```{r packages}
+library(tidyverse)
+```
+
+## Load data
+
+```{r data-read}
+gap <- read_csv("https://bit.ly/gap_data")
+```
+
+## Exercises
+
+### Exercise 1
+
+Take a glimpse at the data set with function `glimpse()`.
+
+```{r glimpse}
+glimpse(gap)
+```
+
+How many variables and observations are in `gap`? What are the variable types
+for the variables in `gap`?
+
+Variable | Type
+---------|----------
+Var 1    |
+Var 2    |
+Var 3    |
+Var 4    |
+Var 5    |
+Var 6    |
+
+
+### Exercise 2
+
+#### Part 1
+
+Create a plot of life expectancy versus year for the United States.
+
+```{r usa}
+gap_usa <- gap %>% 
+  filter(country == "United States")
+
+ggplot(data = gap_usa, mapping = aes(x = year, y = lifeExp)) +
+  geom_point()
+  
+```
+
+#### Part 2
+
+Create a plot of life expectancy verses GDP per Capita for Canada. Set the
+color of the points to be red.
+
+```{r canada}
+# create plot here
+```
+
+#### Part 3
+
+Create a plot of life expectancy versus GDP per Capita based on all countries
+in Africa in 1992. Set the color to be purple.
+
+```{r africa}
+# create plot here
+```
+
+
+
+### Exercise 3
+
+#### Part 1
+
+Create a plot of life expectancy versus GDP per Capita based on all the
+countries in Africa and Europe in 1992. Set the point colors to code for the
+two continents.
+
+```{r africa-europe}
+# Create plot here
+```
+
+#### Part 2
+
+Create comparison boxplots by continent of GDP per Capita for the year 2007.
+Fill the boxplots in with the color dark green.
+
+```{r all-continents}
+# Create plot here
+```
+
+
