@@ -243,6 +243,7 @@ If you avoid authoring for the web, because you're not sure how ...
   [bookdown: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown/) by Yihui Xie.
 
 - Take a look at [RPubs](http://rpubs.com/) web published R Markdown documents.
+
 ---
 
 class: inverse, center, middle
@@ -561,31 +562,79 @@ ggplot(data = gap_cont,
 
 ---
 
-## R / Rstudio resources
+## R Markdown suggestions
 
-- Some useful resources from RStudio: 
-  https://www.rstudio.com/resources/cheatsheets/
-    + RStudio IDE Cheat Sheet
-    + R Markdown Cheat Sheet
-    + R Markdown Reference Guide
-    + Data Import Cheat Sheet
-    + Data Transformation Cheat Sheet
-    + Data Visualization Cheat Sheet
-    
-Some of the above cheatsheers are availalbe in RStudio: `Help > Cheatsheets`
+- Always name your chunks
 
+- Familiarize yourself with chunk options
+    + Also use global options
+
+- Load packages on top of the document
+
+- Use `output: github_document` for output viewable on GitHub
+
+- Various outputs: Make slides with `output: ioslides_presentation` or `xaringan`,
+make websites with `blogdown`, author a book with `bookdown`, etc.
 
 ---
 
-## More R resources
+## Projects
+
+Always use them. Period.
+
+---
+
+## Configuration
+
+- Panes
+
+- View in pane for Rmd
+
+- Themes
+
+- Fonts
+
+---
+
+## R programming resources
+
+- Style
+
+    - [Tidyverse style guide](http://style.tidyverse.org/)
+    - [Google's R style guide](https://google.github.io/styleguide/Rguide.html)
 
 - Beginner
 
+    - [swirl](https://swirlstats.com/): swirl teaches you R programming and data science interactively, at your own pace, and right in the R console
+    - [R manuals](https://cran.r-project.org/manuals.html)
+    - [R for Data Science](https://r4ds.had.co.nz) by Hadley Wickham and 
+      Garret Grolemund
+    - [R Cookbook](https://www.amazon.com/gp/product/0596809158/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0596809158&linkCode=as2&tag=cooforr09-20) by Paul Teetor
+
 - Advanced
+
+    - [Advanced R](https://adv-r.hadley.nz/) by Hadley Wickham
+    - [R Packages](http://r-pkgs.had.co.nz/) by Hadley Wickham
 
 - Miscellaneous
 
+    -  All available [CRAN packages](https://cran.r-project.org/web/packages/available_packages_by_name.html), sorted by name
+
 ---
+
+## More R / RStudio resources
+
+- Some useful resources from RStudio: 
+  https://www.rstudio.com/resources/cheatsheets/
+    - RStudio IDE Cheat Sheet
+    - R Markdown Cheat Sheet
+    - R Markdown Reference Guide
+    - Data Import Cheat Sheet
+    - Data Transformation Cheat Sheet
+    - Data Visualization Cheat Sheet
+    
+Some of the above cheatsheers are availalbe in RStudio: `Help > Cheatsheets`
+
 
 ---
 
@@ -594,3 +643,112 @@ class: inverse, center, middle
 # Version control with git and GitHub
 
 ---
+
+## Why version control?
+
+![](img/why-vc.jpeg)
+
+---
+
+## Why version control?
+
+.pull-left[
+
+- Simple formal system for tracking all changes to a project
+
+- Time machine for your projects
+    + Track blame and/or praise
+    + Remove the fear of breaking things
+
+- Learning curve is steep, but when you need it you *REALLY* need it
+
+]
+
+.pull-right[
+
+![](img/local-vc-system.png)
+
+]
+
+---
+
+## Why git?
+
+.pull-left[
+
+- Distributed
+    + Work online or offline
+    + Collaborate with large groups
+
+- Popular and Successful
+    + Active development
+    + Shiny new tools and ecosystems
+    + Fast
+
+- Tracks any type of file
+
+- Branching
+    + Smarter merges
+
+]
+
+.pull-right[
+
+![](img/distributed-vc-system.png)
+
+]
+
+---
+
+## Getting git
+
+- git is already set-up on the DSS servers
+
+```{bash, eval=FALSE}
+git --version
+```
+
+```{bash, eval=FALSE}
+git which
+```
+
+
+- To install git and connect git, GitHub and RStudio on your own computer 
+  follow the directions in sections 6 -- 8 of 
+  [Happy Git and GitHub for the useR](https://happygitwithr.com/) (https://happygitwithr.com/).
+
+---
+
+## Git and GitHub live demo
+
+- Forking a repository on GitHub
+
+- Create a local copy of a repository
+
+- Working with a local and remote repository
+
+- Best practices for version control
+
+---
+
+## git and GitHub resources
+
+- git's [Pro Git](https://git-scm.com/book/en/v2) book, Chapters [Getting Started](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) and [Git Basics](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository) will be most useful if you are new to git
+
+- [Git cheatsheet](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet) by Atlassian
+
+- GitHub's iteractive [tutorial](https://try.github.io/)
+
+- [Free online course](https://www.udacity.com/course/version-control-with-git--ud123) from Udacity
+
+- [Happy Git with R](http://happygitwithr.com/) by Jenny Bryan
+
+---
+
+class: inverse, center, middle
+
+# Acknowledgements
+
+---
+
+## Acknowledgements
