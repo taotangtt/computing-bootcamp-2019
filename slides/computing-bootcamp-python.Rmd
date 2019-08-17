@@ -16,7 +16,10 @@ output:
 
 ```{r include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE,
-                      comment = '')
+                      comment = '', tidy.opts=list(width.cutoff=80),tidy=TRUE)
+
+library(reticulate)
+
 ```
 
 
@@ -28,11 +31,913 @@ class: inverse, center, middle
 
 ## Before we start
 
+To follow along and be active you have a few options.
+
+- Use a docker container from Duke OIT
+
+    1. Go to https://vm-manage.oit.duke.edu/containers
+    2. Log in with your Duke NetID and password
+    3. Find `Jupyter - interactive data science and scientific computing notebooks`
+    4. Click the link to create your environment
+    
+- Get Python and Jupyter notebook for your own computer
+
+    1. Go to https://www.anaconda.com/distribution/
+    2. Download Python 3.x version based on your OS
+    3. Follow install instructions at https://docs.anaconda.com/anaconda/install/
+    
+- Use RStudio (run Python, but no Jupyter notebook)
+
+    1. Log in to DSS RStudio server
+    2. In an R Markdown file you can insert Python chunks instead of R chunks
+    3. Click the dropdown arrow next to insert
+---
+
+class: inverse, center, middle
+
+# Why Python?
+
+---
+
+## KDnuggets poll
+
+.center.middle[
+
+![](img/kd-nuggets.jpg)
+
+]
+
+---
+## TIOBE index
+
+.center.middle[
+
+![](img/tiobe-index.png)
+
+]
+
+---
+
+## Stack Overflow trends
+
+To see how technologies have trended over time based on use of their 
+tags since 2008 we can look at Stack Overflow trends. [https://bit.ly/2YPWVK7](https://bit.ly/2YPWVK7)
+
+.center[
+![](img/stack-overflow.png)
+]
+
+
+
+---
+
+class: inverse, center, middle
+
+# Jupyter notebook
+
+---
+
+## Overview of the notebook
+
+Bimodal interface: edit mode and command mode
+
+<br>
+
+Click in a cell or hit `enter` to enter edit mode
+.center[
+![](img/edit-mode.png)
+]
+
+When in edit mode you can type code or write text with markdown.
+
+<br>
+
+Hit `esc` to enter command mode
+.center[
+![](img/command_mode.png)
+]
+
+When in command mode you can make edits to the notebook, but not individual
+cells.
+
+---
+
+## Notebook shortcuts
+
+In edit mode:
+
+- Run cell and add new cell: `shift + enter`
+- Add a line within a cell: `enter`
+
+In command mode:
+
+- Save the notebook: `s`
+- Change cell to markdown: `m`
+- Change cell to code: `y`
+- Cut, copy, paste, delete a cell: `x`, `c`, `v`, `d`
+- Add a cell above, below: `a`, `b`
+
+<br><br>
+
+*The point-and-click interface is also an option to execute these commands.*
+
+---
+
+## Jupyter notebook versus R Markdown
+
+- Similar to R Markdown, Jupyter notebooks allow you to write code and text in
+one easy to read document that is reproducible and easy to share with others.
+
+- A Jupyter notebook does not knit into an HTML, PDF or Word file. However, you
+can embeed HTML into a notebook.
+
+-
+
+---
+
+class: inverse, center, middle
+
+# Basics
+
+---
+
+## Operators
+
 ```{python}
-a = list(range(10))
-print(a)
+10 + 8
+3 - 2
+100 / 6
+80 * 0
+100 // 3
 ```
 
 ---
+
+## Operators
+
+```{python}
+13 % 4
+4 ** 3
+```
+
+Operators `&`, `|`, and `^` are bitwise operators. You probably will not need
+them. These are used in R, so try not to get confused.
+
+---
+
+## Comparison operators
+
+```{python}
+5 > 0
+4 < 100
+3 == 3
+10 <= (5 * 1.9)
+0 != 1
+```
+
+---
+
+
+## Comparison operators
+
+Use boolean key words `and`, `or`, and `not` for multiple comparisons.
+
+```{python}
+(5 > 10) or (8 / 2 == 4)
+True and (8 > 64 ** 0.5)
+not True and (8 > 64 ** 0.5)
+not (True and (8 > 64 ** 0.5))
+```
+
+Parentheses matter. Also, python is case sensitive. True != TRUE unless 
+you set a variable TRUE = True which is something you probably shouldn't do.
+
+---
+
+## Differences between Python and R
+
+|      Command     |  Python |        R       |
+|:----------------:|:-------:|:--------------:|
+|             true |  `True` |  `TRUE` or `T` |
+|            false | `False` | `FALSE` or `F` |
+|               or |   `or`  |       `|`      |
+|              and |  `and`  |       `&`      |
+|              not |  `not`  |       `!`      |
+|           modulo |   `%`   |      `%%`      |
+|   exponentiation |   `**`  |       `^`      |
+| integer division |   `//`  |      `%/%`     |
+
+---
+
+## Object assignment
+
+Use a single `=` for object assignment.
+
+```{python}
+a = 10
+a
+
+b = [-10, 0, "computing", "bootcamp", 5 / 2]
+b
+
+my_string = "This is a longgggg string"
+my_string
+
+nums = list(range(7))
+nums
+```
+
+---
+
+## Shortcut operation and assignment
+
+Unlike R, Python supports things like
+
+```{python}
+a = 5
+a += 3
+a
+```
+
+```{python}
+val = 10
+val **= 3
+val
+```
+
+These are equivalent to `a = a + 3` and `val = val ** 3`, respectively.
+
+
+---
+
+class: inverse, center, middle
+
+# Data structures
+
+---
+
+## Built-in data structures
+
+Python has four built-in data structures
+
+- Lists: an ordered collection of items, mutable
+<br><br>
+- Tuples: an immutable list
+<br><br>
+- Dictionaries: an unordered collection of key-value pairs
+<br><br>
+- Sets: unordered collection of unique objects
+
+---
+
+## Lists
+
+- Lists can contain anything you want.
+
+- The first item in a list is considered to be in position 0, not position 1.
+
+```{python}
+my_list2 = [9, [1, 1, 1], 10, "swimming", "hiking"]
+my_list2
+
+my_list2[0]
+my_list2[1]
+my_list2[-1]
+```
+
+---
+
+## Tuples
+
+- A tuple looks just like a list, but we use ( ) instead of [ ].
+
+- Remember: tuples are immutable, you won't be able to change individual values
+
+```{python}
+cars = ("subaru", "bmw", "hond", "ford")
+cars[3]
+```
+
+```{python, error=TRUE, tidy=FALSE}
+# Try to change
+
+cars[2] = "honda"
+```
+
+`TypeError: 'tuple' object does not support item assignment`
+
+---
+
+## Dictionaries
+
+- Each key is connected to a value.
+
+- The value can be any object you can create in python.
+
+- Syntax: `{"key1": val1, "key2": val2}`
+
+```{python}
+my_bike = {"model": "trek", "color": "lime green", "size": 56, "style": "gravel"}
+
+my_bike["model"]
+
+my_bike["year"] = 2019
+my_bike
+```
+
+---
+
+## Sets
+
+- Test for membership.
+
+- Apply set operators that you know from set theory.
+
+```{python}
+my_set = {'a', 'b', 'c', 'd'}
+my_set
+
+list("seewhathappens")
+my_set2 = set(list("aabbbbbbbbcddddddde"))
+my_set2
+```
+
+---
+
+class: inverse, center, middle
+
+# Classes, methods, attributes
+
+---
+
+## A brief introduction to OOP
+
+Python is an object oriented programming (OOP) language. Objects can be
+categorized by their class type. For each class there exist methods and
+attributes.
+
+- Think of methods as functions defined to be used for only that class.
+
+- Think of attributes as variables defined for use with respect to a class.
+
+- To access methods and attributes: `my_object.<method or attribute>`
+
+---
+
+## Methods in action
+
+```{python}
+my_courses = ["STA523", "STA199"]
+type(my_courses)
+```
+
+```{python}
+my_courses.append("STA323")
+my_courses
+```
+
+```{python}
+my_courses.reverse()
+my_courses
+```
+
+---
+
+## More methods in action
+
+```{python}
+x = 4 + 3j
+y = 0 + 1J
+
+[x.real, y. real]
+[x.imag, y.imag]
+
+```
+
+```{python}
+my_string = "python is an object oriented programming language"
+
+my_string.title()
+my_string.count("o")
+```
+
+---
+
+## Tasks
+
+### Task 1
+
+Create a variable and each of the four built-in data structures (list, tuple,
+dictionary, set). For each object use two methods and document in markdown the
+functionality of the two methods.
+
+### Task 2
+
+Set `dilemma` to all lowercase. Then, reverse the order of the letters. Lastly,
+capitalize the first "b".
+
+
+```{python}
+dilemma = "Borrow OR Rob"
+```
+
+*Hint*
+
+`dilemma[start:end:step]`. What does a negative index do?
+
+---
+
+class: inverse, center, middle
+
+# Control flow
+
+---
+
+## `if`, `for`, `while`
+
+- The syntax style of control flow in Python is based off `:` and indented
+  spaces. Python does not wrap code blocks for control flow with `{ }` as is
+  done in R.
+- This has plusses and minuses
+- There is no `switch` statement and no `repeat` statement
+
+---
+
+## `if`
+
+
+```{python, eval=FALSE}
+if condition:
+  # code block
+  # indented
+elif another_condition:
+  # code block
+  # indented
+else:
+  # code block
+  # indented
+
+```
+
+
+
+```{python}
+medical_cost = 180
+
+if medical_cost <= 100:
+  bill = medical_cost
+elif medical_cost <= 200:
+  bill = 100 + (0.5 * (medical_cost - 100))
+else:
+  bill = 150
+  
+print("Your total bill is {} dollars.".format(bill))
+```
+
+---
+
+## `for` loop
+
+
+```{python, eval=FALSE}
+for index in sequence:
+  # code
+  # to 
+  # be
+  # iterated
+  # again, indented
+```
+
+
+
+```{python}
+j = 1
+
+for i in "Duke":
+  print("Letter {} is {}.\n".format(j, i))
+  j += 1
+```
+
+---
+
+## `for` loop
+
+
+```{python, eval=FALSE}
+for index in sequence:
+  # code
+  # to 
+  # be
+  # iterated
+  # again, indented
+```
+
+
+```{python}
+j = 1
+
+for i in "Duke":
+  print("Letter {} is {}.\n".format(j, i))
+  j += 1
+```
+
+---
+
+## `for` loop
+
+Some more examples...
+
+```{python}
+squares = []
+for i in range(1, 11):
+  squares.append(i ** 2)
+  
+squares
+```
+
+```{python}
+d = {"language": "python", "version": 3.7, 
+      "year": 1989, "creator": "Guido van Rossum"}
+      
+for k, v in d.items():
+  print("The key is {}, and its value is {}.".format(k, v))
+```
+
+---
+
+## `while` loop
+
+
+```{python, eval=FALSE}
+while condition:
+  # code
+  # to 
+  # be
+  # iterated
+  # again, indented
+```
+
+
+```{python}
+j = 100
+i = 1.01
+while i < j:
+  i *= i
+  print(i)
+
+```
+
+---
+
+## `while` loop
+
+Some more examples...
+
+```{python}
+nums = list(range(3))
+while nums:
+  num_off = nums.pop()
+  print("The number {} was removed from the list nums.".format(num_off))
+
+```
+
+Python also supports `break` statements
+
+```{python}
+my_string = "I'm sleepy, "
+i = 1
+while True:
+  my_string += "z"
+  i += 1
+  if i > 10:
+    break
+    
+my_string
+```
+
+---
+
+class: inverse, center, middle
+
+# Functions
+
+---
+
+## Defining a function
+
+As with control flow, Python relies on indentations and `:` for function style
+syntax as opposed to `{ }` in R.
+
+.pull-left[
+```{python}
+def func_name(arg1, arg2):
+    """
+    Docstring starts wtih a 
+    short description.
+
+    May have more 
+    information here.
+
+    arg1 = something
+    arg2 = somehting
+
+    Returns something
+
+    Example usage:
+
+    func_name(1, 2)
+    
+    """
+    result = arg1 + arg2
+
+    return result
+```
+]
+
+.pull-right[
+
+```{python}
+help(func_name)
+```
+
+]
+
+---
+
+## Functions in action
+
+```{python}
+def is_prime(n):
+  """
+  This function checks if a number is prime.
+  
+  n = positive integer
+  
+  Example:
+  
+  is_prime(2)
+  is_prime(16)
+  
+  """
+  
+  if n < 3:
+    result = n - 1
+  else:
+    for i in range(2, n):
+      if (n % i) == 0:
+        result = False
+        break
+    else:
+      result = True
+      
+  return bool(result)
+  
+```
+
+---
+
+## Function scope
+
+```{python}
+x = 10
+
+def f(x):
+  print("The value of x on line 1 is: {}".format(x))
+  x += x
+  print("The value of x on line 3 is: {}".format(x))
+  
+f(x = x)
+  
+print("The value of x after the function has run is: {}".format(x))
+  
+```
+
+---
+
+## Function scope
+
+```{python}
+my_list = list("abcd")
+print(my_list)
+
+def g(y):
+  y.pop()
+  print(y)
+  print(my_list)
+  return y
+  
+new_list = g(y = my_list)
+print(new_list)
+```
+
+---
+
+## Tasks
+
+### Task 3
+
+Write a function that takes a list and returns a new list with 
+unique elements of the first list.
+
+```{python, echo=FALSE}
+def unique_list(lst):
+    x = []
+    for a in lst:
+        if a not in x:
+            x.append(a)
+    return x
+```
+
+```{python}
+unique_list([1,1,1,1,2,2,3,3,3,3,4,5])
+```
+
+### Task 4
+
+Use funtion `is_prime()` to write another function that counts how many prime
+numbers there are less than or equal to a specified number.
+
+```{python, echo=FALSE}
+def prime_count(k):
+  count = 0
+  for i in range(1, k + 1):
+    count += is_prime(i)
+  
+  return count
+```
+
+```{python}
+prime_count(k = 1000)
+```
+
+
+
+
+
+---
+
+class: inverse, center, middle
+
+# Python libraries
+
+---
+
+## Libraries of interest
+
+- [NumPy](https://www.numpy.org/): package for scientific computing, handling
+  matrices, arrays, high level mathematical functions
+
+- [SciPy](https://scipy.org/scipylib/): optimization, numerical integration, 
+  linear algebra methods
+  
+- [pandas](https://pandas.pydata.org/): data wrangling and analysis (think 
+  R's `dplyr`)
+  
+- [matplotlib](https://matplotlib.org/index.html): 2D plotting library, generate
+  plots, histograms, power spectra, bar charts, errorcharts, scatterplots
+  
+- [seaborn](https://seaborn.pydata.org/): higher level plotting environment, 
+  based on Matplotlib
+  
+- [scikit-learn](https://scikit-learn.org/stable/): go to for machine learning
+  in Python, built on NumPy, SciPy, and matplotlib
+  
+- [TensorFlow](https://www.tensorflow.org/): popular framework for deep and 
+  machine learning, developed in Google Brain
+
+---
+
+## Importing
+
+A module is a single importable Python file whereas a package is made up of 
+two or more modules. Both can be imported the same way with the keyword
+`import`.
+
+For example, `import math` imports the math module and we will get access to
+its many functions.
+
+```{python}
+import math
+math.factorial(5)
+math.sqrt(100)
+math.log(1)
+```
+
+
+---
+
+## Importing `from`
+
+If you don't want to import all the functions from a module, then you can
+just import the ones you need with the keyword `from`.
+
+```{python}
+from math import factorial, sqrt, log
+factorial(5)
+sqrt(100)
+log(1)
+```
+
+We no longer have to preface each function call with `math.`. You can
+import all functions from a given module with
+
+```{python, eval=FALSE}
+from math import *
+```
+
+However, this is a bad idea as you may have conflicts between your 
+object names and function names in the module.
+
+---
+
+## Importing `as`
+
+For brevity, people often give an alias to a package or module on import. This
+can be done with the keyword `as`.
+
+```{python}
+import numpy as np
+import scipy.stats as st
+import matplotlib.pyplot as plt
+```
+
+Rather than type `matplotlib.pyplot.hist()` a user can type `plt.hist()`. 
+There are common conventions for aliases so stick to using those.
+
+---
+
+## Example
+
+Import packages / modules:
+
+```{python}
+import numpy as np
+import scipy.stats as st
+import matplotlib.pyplot as plt
+```
+
+In Jupyter notebook you'll want to include the below line of code in a cell
+to allow for inline plotting.
+
+```{python, eval=FALSE}
+%matplotlib inline
+```
+
+```{python, eval=FALSE}
+data = np.random.rand(20, 20)
+plt.imshow(data)
+plt.colorbar()
+```
+
+---
+
+## Example
+
+```{python, eval=FALSE}
+norm_rv = st.norm.rvs(loc = 0,scale = 1, size = 5000)
+plt.hist(x=norm_rv, bins=20, alpha=.5, color="purple",
+          edgecolor='black', linewidth=1.2)
+```
+
+---
+
+## Tasks
+
+### Task 5
+
+Create a histogram based off of random variables generated from a probability
+distribution of your choice.
+
+### Task 6
+
+Plot 100 time steps of a simple symmetric random walk that starts at the value
+0.
+
+```{python, eval=FALSE, echo=FALSE}
+moves = np.random.random(100)
+moves[moves < 0.5] = -1
+moves[moves >= 0.5] = 1
+walk = moves.cumsum()
+walk_list = list(walk)
+walk_list.insert(0, 0)
+plt.plot(walk_list)
+plt.show()
+```
+
+
+---
+
+
+## Python resources
+
+---
+
+class: inverse, center, middle
+
+# Acknowledgments
+
+---
+
+## Acknowledgments
 
 
