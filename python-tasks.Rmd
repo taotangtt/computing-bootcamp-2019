@@ -1,0 +1,92 @@
+---
+title: "Python tasks"
+author: "Shawn Santo"
+date: "8/18/2019"
+output: 
+  html_document:
+    keep_md: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE,
+                      comment = "")
+```
+
+## Introduction
+
+The following tasks are from the slides `computing-bootcamp-python.html`.
+Since we are using Python, be sure to insert Python code chunks using the
+dropdown arrow next to Insert.
+
+## Tasks
+
+### Task 1
+
+Create a variable and each of the four built-in data structures (list, tuple,
+dictionary, set). For each object use two methods and document in markdown the
+functionality of the two methods.
+
+### Task 2
+
+Set `dilemma` to all lowercase. Then, reverse the order of the letters. Lastly,
+capitalize the first "b".
+
+```{python}
+dilemma = "Borrow OR Rob"
+```
+
+*Hint*
+
+`dilemma[start:end:step]`. What does a negative index do?
+
+
+### Task 3
+
+Write a function that takes a list and returns a new list with 
+unique elements of the first list.
+
+
+### Task 4
+
+Use funtion `is_prime()` to write another function that counts how many prime
+numbers there are less than or equal to a specified number.
+
+```{python}
+def is_prime(n):
+  """
+  This function checks if a number is prime.
+  
+  n = positive integer
+  
+  Example:
+  
+  is_prime(2)
+  is_prime(16)
+  
+  """
+  
+  if n < 3:
+    result = n - 1
+  else:
+    for i in range(2, n):
+      if (n % i) == 0:
+        result = False
+        break
+    else:
+      result = True
+      
+  return bool(result)
+  
+is_prime(13)
+is_prime(22)
+```
+
+### Task 5
+
+Create a histogram based off of random variables generated from a probability
+distribution of your choice.
+
+### Task 6
+
+Plot 100 time steps of a simple symmetric random walk that starts at the value
+0.
