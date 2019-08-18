@@ -927,8 +927,31 @@ plt.show()
 
 ---
 
+## Python programming resources
 
-## Python resources
+- Style
+
+    - [PEP 8](https://www.python.org/dev/peps/pep-0008/): standard Python style
+    - [PEP 257](https://www.python.org/dev/peps/pep-0257/): documentation
+      conventions
+
+- Beginner
+
+   - [Python](https://www.python.org/): official documentatoin and tutorial
+   - [Jupyter](https://jupyter.org/): web notebook interface, reproducible 
+     research
+   - [A Byte of Python](https://python.swaroopch.com/)
+   - [Python Crash Course](https://ehmatthes.github.io/pcc/)
+   - [Python Crash Course - Cheat Sheets](https://ehmatthes.github.io/pcc/cheatsheets/README.html)
+
+- Advanced
+
+    - [Python Package Index](https://pypi.org)
+    - [Problem Solving with Algorithms and Data Structures using Python](https://runestone.academy/runestone/books/published/pythonds/index.html)
+
+- Miscellaneous
+
+    - [Python 3 Module of the Week](https://pymotw.com/3/)
 
 ---
 
