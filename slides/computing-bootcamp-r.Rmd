@@ -1,6 +1,6 @@
 ---
 title: "Computing Bootcamp 2019"
-subtitle: "R / RStudio and Version Control"
+subtitle: "Reproducible Research, R / RStudio, Version Control"
 author: "Shawn Santo"
 institute: ""
 date: "08-19-19"
@@ -37,7 +37,7 @@ A couple things to get everyone on the same page
 A few suggestions on picking a GitHub username:
 
 - Incorporate your actual name! People like to know who they’re dealing with. 
-  Also makes your username easier for people to guess or remember.
+  It makes your username easier for people to guess or remember.
 
 - Pick a username you will be comfortable revealing to your future boss.
 
@@ -53,25 +53,37 @@ A few suggestions on picking a GitHub username:
 
 ---
 
-## Access DSS RStudio servers
+## Accessing R / RStudio
 
-- Go to 
-    - PhD: http://smith.stat.duke.edu:8787/
-    - MS: http://saxon.stat.duke.edu:8787/
-    - UG: http://gort.stat.duke.edu:8787/
+For today, the preferred method is to use DSS RStudio servers:
 
-- Log in with your Duke `netid` and password
+- PhD: https://smith.stat.duke.edu:8787/
+- MS: https://saxon.stat.duke.edu:8787/
+- UG: https://gort.stat.duke.edu:8787/
+
+Log in with your Duke `netid` and password
     
-- If you cannot access the servers,
+If you cannot access the servers:
+
+- Use R and RStudio on your computer
+
     - Download R on your computer [here](http://archive.linux.duke.edu/cran/)
     - Download RStudio [here](https://www.rstudio.com/products/rstudio/download/)
+    
+- Use a docker container from Duke OIT
+
+    1. Go to https://vm-manage.oit.duke.edu/containers
+    2. Log in with your Duke NetID and password
+    3. Find `RStudio - statistics application with Rmarkdown and knitr support`
+    4. Click the link to create your environment
 
 ---
 
 ## Today's materials
 
 Everything from today will be available on my GitHub account at
-https://github.com/.
+https://github.com/shawnsanto/computing-bootcamp-2019. You'll learn how to
+get this on your computer shortly.
 
 ---
 
@@ -114,6 +126,35 @@ Source: http://retractionwatch.com/2014/07/01/bad-spreadsheet-merge-kills-depres
 
 ---
 
+## Study of social media retracted when authors can’t provide data
+
+"*A business journal has retracted a 2016 paper about how social media can encourage young consumers to become devoted to particular brands, after discovering flaws in the data and findings.*"
+
+Reasons for retraction:
+
+- Error in data
+- Error in results and/or conclusions
+- Results not reproducible
+
+Source: http://retractionwatch.com/2017/07/31/study-social-media-retracted-authors-cant-provide-data/
+
+---
+
+## Heart pulls sodium meta-analysis over duplicated, and now missing, data
+
+"*The journal Heart has retracted a 2012 meta-analysis after learning that two of the six studies included in the review contained duplicated data.  Those studies, it so happens, were conducted by one of the co-authors.*"
+
+From the retraction notice, "*The Committee considered that without sight of the raw data on which the two papers containing the duplicate data were based, their reliability could not be substantiated. Following inquiries, it turns out that the raw data are no longer available having been lost as a result of computer failure.*"
+
+Reasons for retraction:
+
+- Duplication of data
+- Results not reproducible
+
+Source: http://retractionwatch.com/2013/05/02/heart-pulls-sodium-meta-analysis-over-duplicated-and-now-missing-data/
+
+---
+
 ## Reproducibility: why should we care?
 
 1. Convince researchers to adopt a reproducible research workflow
@@ -130,6 +171,10 @@ Source: http://retractionwatch.com/2014/07/01/bad-spreadsheet-merge-kills-depres
 
 - Version control $\rightarrow$ git / GitHub
 
+<br><br>
+
+Could these tools have prevented some of the aforementioned retractions?
+
 ---
 
 ## Donald Knuth "Literate Programming (1983)"
@@ -145,20 +190,24 @@ that is best for human understanding, using a mixture of formal and
 informal methods that reinforce each other."
 
 - These ideas have been around for years!
-- and tools for putting them to practice have also been around
-- but they have never been as accessible as the current tools
+- Tools for putting them to practice have also been around.
+- They have never been as accessible as the current tools.
 
 ---
 
 ## Reproducibility checklist
 
 - Are the tables and figures reproducible from the code and data?
+<br><br>
 - Does the code actually do what you think it does?
+<br><br>
 - In addition to what was done, is it clear *why* it was done? (e.g., how 
 were parameter settings chosen?)
+<br><br>
 - Can the code be used for other data?
+<br><br>
 - Can you extend the code to do other things?
-
+<br><br>
 ---
 
 ## Ambitious goal
@@ -166,13 +215,13 @@ were parameter settings chosen?)
 We need an environment where
 
 - data, analysis, and results are tightly connected, or better yet, 
-inseparable
+inseparable,
 
-- reproducibility is built in
+- reproducibility is built in,
     + the original data remains untouched
     + all data manipulations and analyses are inherently documented
 
-- documentation is human readable and syntax is minimal
+- documentation is human readable and syntax is minimal.
 
 ---
 
@@ -258,24 +307,31 @@ Rather than use the R graphical user interface we will use RStudio.
 RStudio is a free and open-source integrated development environment (IDE) for 
 R.
 
-- To access the DSS RStudio server, go to 
-    + PhD: http://smith.stat.duke.edu:8787/
-    + MS: http://saxon.stat.duke.edu:8787/
-    + UG: http://gort.stat.duke.edu:8787/
+For today, the preferred method is to use DSS RStudio servers:
 
-- Log in with your `netid` and password
+- PhD: https://smith.stat.duke.edu:8787/
+- MS: https://saxon.stat.duke.edu:8787/
+- UG: https://gort.stat.duke.edu:8787/
+
+Log in with your Duke `netid` and password
+    
+If you cannot access the servers:
+
+- Use R and RStudio on your computer
+    
+- Use a docker container from Duke OIT
 
 ---
 
 
 ## Getting started today
 
-In order to get started, you need to obtain the Rmd file from GitHub. The
-steps below will give you access to it and everything else we introduce today.
+In order to get started, you need to obtain today's files from GitHub. The
+steps below will give you access.
 
 1. Log in to GitHub
 
-2. Navigate to https://github.com/shawnsanto/STT191
+2. Navigate to https://github.com/shawnsanto/computing-bootcamp-2019
 
 3. Fork the repository
 
@@ -322,13 +378,13 @@ library(tidyverse)
 
 ## A note on workspaces
 
-- Your R Markdown document and your Console do not share workspaces
+- Your R Markdown document and your Console do not share workspaces.
 
 - This is good for reproducibility, but can sometimes result in frustrating 
-errors
+errors.
 
 - This also means any packages needed for your analysis need to be loaded in 
-your R Markdown document as well
+your R Markdown document as well.
 
 ---
 
@@ -524,7 +580,7 @@ two continents.
 ### Part 2
 
 Create comparison boxplots by continent of GDP per Capita for the year 2007.
-Fill the boxplots in with the color dark green.
+Fill the boxplots with color `darkgreen`.
 
 *Hints*:
 
@@ -532,7 +588,7 @@ Fill the boxplots in with the color dark green.
 
 2. Inside `aes()` set `x = continent, y = gdpPercap`.
 
-3. Use `geom_boxplot()` and set the fill to dark green.
+3. Use `geom_boxplot()` and set the fill to `darkgreen`.
 
 ---
 
@@ -562,16 +618,62 @@ ggplot(data = gap_cont,
 
 ---
 
+## Reproducible?
+
+- Is your work reproducible?
+
+- Are you able to easily redo your analysis with newly updated data?
+
+```{r}
+gap_upd <- read_csv("https://bit.ly/gap_data_upd")
+```
+
+---
+
+## Workflow
+
+.center.middle[
+![](img/data-science.png)
+]
+
+<br><br><br><br><br>
+
+Source: Grolemund and Wickham, R for Data Science, http://r4ds.had.co.nz/
+
+---
+
+## Organizing a more complex analysis
+
+- Use folders: raw_data, processed_data, code, figures, etc.
+
+- Number your script files:
+    - `00_load_data.R`
+    - `01_data_cleanup.R`
+    - `02_eda.R`
+    - ...
+
+- Use informative names that indicate versioning
+    - use dates
+    - avoid things like `project_fin`, `project_finalfinal`, etc.
+
+---
+
 ## R Markdown suggestions
 
 - Always name your chunks
 
 - Familiarize yourself with chunk options
-    + Also use global options
+    - Use global options
 
-- Load packages on top of the document
+- Load packages at the start of a document
 
-- Use `output: github_document` for output viewable on GitHub
+- Use `output: github_document` for output viewable on GitHub or
+
+```{r eval=FALSE}
+output: 
+  html_document: 
+    keep_md: yes
+```
 
 - Various outputs: Make slides with `output: ioslides_presentation` or `xaringan`,
 make websites with `blogdown`, author a book with `bookdown`, etc.
@@ -626,6 +728,7 @@ Always use them. Period.
 
 - Some useful resources from RStudio: 
   https://www.rstudio.com/resources/cheatsheets/
+  
     - RStudio IDE Cheat Sheet
     - R Markdown Cheat Sheet
     - R Markdown Reference Guide
@@ -646,7 +749,9 @@ class: inverse, center, middle
 
 ## Why version control?
 
+.center.middle[
 ![](img/why-vc.jpeg)
+]
 
 ---
 
@@ -709,13 +814,21 @@ git --version
 ```
 
 ```{bash, eval=FALSE}
-git which
+git version 2.14.5
+```
+
+```{bash, eval=FALSE}
+which git
+```
+
+```{bash, eval=FALSE}
+/usr/bin/git
 ```
 
 
 - To install git and connect git, GitHub and RStudio on your own computer 
   follow the directions in sections 6 -- 8 of 
-  [Happy Git and GitHub for the useR](https://happygitwithr.com/) (https://happygitwithr.com/).
+  [Happy Git and GitHub for the useR](https://happygitwithr.com/).
 
 ---
 
@@ -727,13 +840,27 @@ git which
 
 - Working with a local and remote repository
 
-- Best practices for version control
+- Managing merge conflicts
 
 ---
 
-## git and GitHub resources
+## Version control best practices
 
-- git's [Pro Git](https://git-scm.com/book/en/v2) book, Chapters [Getting Started](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) and [Git Basics](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository) will be most useful if you are new to git
+- Commit early, often, and with completed code.
+
+- Write clear and concise commit summary messages.
+
+- Test code before you commit.
+
+- Use branches
+
+- Communicate with your team
+
+---
+
+## Git and GitHub resources
+
+- git's [Pro Git](https://git-scm.com/book/en/v2) book, Chapters [Getting Started](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) and [Git Basics](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository) will be most useful if you are new to git and GitHub
 
 - [Git cheatsheet](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet) by Atlassian
 
@@ -752,3 +879,13 @@ class: inverse, center, middle
 ---
 
 ## Acknowledgements
+
+- [DSS Computing Bootcamp 2018](https://github.com/DukeStatSci/computing-bootcamp-2018) by Mine Çetinkaya-Rundel and Colin Rundel
+
+- [R for Data Science](https://r4ds.had.co.nz) by Hadley Wickham and Garret Grolemund
+
+- https://retractionwatch.com/
+
+- [Pro Git](https://git-scm.com/book/en/v2)
+
+- https://www.git-tower.com/blog/version-control-best-practices/
