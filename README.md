@@ -61,10 +61,10 @@ The workshop will cover the following topics:
 - [Retraction Watch](https://retractionwatch.com/)
 
 #### Python
-- [A Byte of Python](https://python.swaroopch.com/)
+- [A Byte of Python](https://python.swaroopch.com/) by Swaroop C H
 - [Jupyter](https://jupyter.org/)
 - [Python](https://www.python.org/)
-- [Python Crash Course](https://ehmatthes.github.io/pcc/)
+- [Python Crash Course](https://ehmatthes.github.io/pcc/) by Eric Matthes
 
 #### R
 - [R for Data Science](https://r4ds.had.co.nz) by Hadley Wickham and Garret Grolemund
