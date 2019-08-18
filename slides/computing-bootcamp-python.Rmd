@@ -963,4 +963,12 @@ class: inverse, center, middle
 
 ## Acknowledgments
 
+- https://www.python.org/
+
+- https://jupyter.org/
+
+- Python Crash Course by Eric Matthes
+
+- A Byte of Python by Swaroop C H
+
 
