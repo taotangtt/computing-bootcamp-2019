@@ -5,7 +5,7 @@ students to the Department of Statistical Science at Duke University.
 
 The workshop will cover the following topics:
 
-## Introduction to the department computing eco-system
+## Introduction to the department and Duke computing eco-system
 
 - Account activation and access to departmental servers
 - Discussion of how to responsibly use distributed computing resources
