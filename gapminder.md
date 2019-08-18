@@ -1,5 +1,5 @@
 ---
-title: "Gapminder Analysis"
+title: "Gapminder Data Analysis"
 author: "Shawn Santo"
 date: "2019-08-19"
 output: 
@@ -21,7 +21,7 @@ library(tidyverse)
 
 
 ```r
-gap <- read_csv("https://bit.ly/gap_data")
+gap <- read_csv("https://bit.ly/gap_data_upd")
 ```
 
 ## Exercises
@@ -36,14 +36,14 @@ glimpse(gap)
 ```
 
 ```
-## Observations: 1,363
+## Observations: 1,704
 ## Variables: 6
-## $ country   <chr> "United Kingdom", "Eritrea", "Trinidad and Tobago", ...
-## $ continent <chr> "Europe", "Africa", "Americas", "Asia", "Asia", "Ame...
-## $ year      <dbl> 1967, 2007, 1997, 2002, 2007, 1987, 1957, 1982, 1952...
-## $ lifeExp   <dbl> 71.360, 58.040, 69.465, 76.990, 77.588, 65.205, 40.4...
-## $ pop       <dbl> 54959000, 4906585, 1138101, 22454239, 2505559, 14293...
-## $ gdpPercap <dbl> 14142.8509, 641.3695, 8792.5731, 23235.4233, 47306.9...
+## $ country   <chr> "Algeria", "Algeria", "Algeria", "Algeria", "Algeria...
+## $ continent <chr> "Africa", "Africa", "Africa", "Africa", "Africa", "A...
+## $ year      <dbl> 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992...
+## $ lifeExp   <dbl> 43.077, 45.685, 48.303, 51.407, 54.518, 58.014, 61.3...
+## $ pop       <dbl> 9279525, 10270856, 11000948, 12760499, 14760787, 171...
+## $ gdpPercap <dbl> 2449.008, 3013.976, 2550.817, 3246.992, 4182.664, 49...
 ```
 
 How many variables and observations are in `gap`? What are the variable types
@@ -63,40 +63,38 @@ Var 6    |
 
 #### Part 1
 
+Create a plot of life expectancy versus year for the United States.
+
 
 ```r
-gap %>% 
-  filter(country == "United States") %>% 
-  ggplot(mapping = aes(x = year, y = lifeExp)) +
+gap_usa <- gap %>% 
+  filter(country == "United States")
+
+ggplot(data = gap_usa, mapping = aes(x = year, y = lifeExp)) +
   geom_point()
 ```
 
-![](gapminder_files/figure-html/unnamed-chunk-1-1.png)<!-- -->
+![](gapminder_files/figure-html/usa-1.png)<!-- -->
 
 #### Part 2
 
+Create a plot of life expectancy verses GDP per Capita for Canada. Set the
+color of the points to be red.
+
 
 ```r
-gap %>% 
-  filter(country == "Canada") %>% 
-  ggplot(mapping = aes(x = gdpPercap, y = lifeExp)) +
-  geom_point(color = "red") +
-  geom_line()
+# create plot here
 ```
-
-![](gapminder_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
 
 #### Part 3
 
+Create a plot of life expectancy versus GDP per Capita based on all countries
+in Africa in 1992. Set the color to be purple.
+
 
 ```r
-gap %>% 
-  filter(continent == "Africa", year == 1992) %>% 
-  ggplot(mapping = aes(x = gdpPercap, y = lifeExp)) +
-  geom_point(color = "purple")
+# create plot here
 ```
-
-![](gapminder_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
 
 
 
@@ -104,26 +102,23 @@ gap %>%
 
 #### Part 1
 
+Create a plot of life expectancy versus GDP per Capita based on all the
+countries in Africa and Europe in 1992. Set the point colors to code for the
+two continents.
+
 
 ```r
-gap %>% 
-  filter(continent %in% c("Africa", "Europe"), year == 1992) %>% 
-  ggplot(mapping = aes(x = gdpPercap, y = lifeExp, color = continent)) +
-  geom_point()
+# Create plot here
 ```
-
-![](gapminder_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
 #### Part 2
 
+Create comparison boxplots by continent of GDP per Capita for the year 2007.
+Fill the boxplots with color `darkgreen`.
+
 
 ```r
-gap %>% 
-  filter(year == 2007) %>% 
-  ggplot(mapping = aes(x = continent, y = gdpPercap)) +
-  geom_boxplot(fill = "darkgreen")
+# Create plot here
 ```
-
-![](gapminder_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
 
 

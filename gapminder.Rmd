@@ -99,7 +99,7 @@ two continents.
 #### Part 2
 
 Create comparison boxplots by continent of GDP per Capita for the year 2007.
-Fill the boxplots in with the color dark green.
+Fill the boxplots with color `darkgreen`.
 
 ```{r all-continents}
 # Create plot here
