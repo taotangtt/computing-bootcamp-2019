@@ -49,10 +49,25 @@ The workshop will cover the following topics:
 - Discuss similarities and differences between Python and R
 - Discuss how to leverage the best of R and Python
 
-## Acknowledgments 
+## Acknowledgments
 
-- [Department of Statistical Science Computing Bootcamp 2018](https://github.com/DukeStatSci/computing-bootcamp-2018) by Mine Çetinkaya-Rundel and Colin Rundel
-- [R for Data Science](https://r4ds.had.co.nz) by Hadley Wickham and Garret Grolemund
-- [Retraction Watch](https://retractionwatch.com/)
+#### Git / GitHub
+
 - [Pro Git](https://git-scm.com/book/en/v2)
 - [Version Control Best Practices](https://www.git-tower.com/blog/version-control-best-practices/)
+
+#### Other
+- [Department of Statistical Science Computing Bootcamp 2018](https://github.com/DukeStatSci/computing-bootcamp-2018) by Mine Çetinkaya-Rundel and Colin Rundel
+- [Retraction Watch](https://retractionwatch.com/)
+
+#### Python
+- [A Byte of Python](https://python.swaroopch.com/)
+- [Jupyter](https://jupyter.org/)
+- [Python](https://www.python.org/)
+- [Python Crash Course](https://ehmatthes.github.io/pcc/)
+
+#### R
+- [R for Data Science](https://r4ds.had.co.nz) by Hadley Wickham and Garret Grolemund
+
+
+
