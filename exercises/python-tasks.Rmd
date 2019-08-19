@@ -48,7 +48,7 @@ unique elements of the first list.
 
 ### Task 4
 
-Use funtion `is_prime()` to write another function that counts how many prime
+Use function `is_prime()` to write another function that counts how many prime
 numbers there are less than or equal to a specified number.
 
 ```{python}
