@@ -150,7 +150,7 @@ In command mode:
 one easy to read document that is reproducible and easy to share with others.
 
 - A Jupyter notebook does not knit into an HTML, PDF or Word file. However, you
-can embeed HTML into a notebook.
+can embed HTML into a notebook.
 
 - For a more detailed comparison see [The First Notebook War](https://yihui.name/en/2018/09/notebook-war/)
 
@@ -637,14 +637,14 @@ syntax as opposed to `{ }` in R.
 ```{python}
 def func_name(arg1, arg2):
     """
-    Docstring starts wtih a 
+    Docstring starts with a 
     short description.
 
     May have more 
     information here.
 
     arg1 = something
-    arg2 = somehting
+    arg2 = something
 
     Returns something
 
@@ -757,7 +757,7 @@ unique_list([1,1,1,1,2,2,3,3,3,3,4,5])
 
 ### Task 4
 
-Use funtion `is_prime()` to write another function that counts how many prime
+Use function `is_prime()` to write another function that counts how many prime
 numbers there are less than or equal to a specified number.
 
 ```{python, echo=FALSE}
@@ -945,7 +945,7 @@ plt.show()
 
 - Beginner
 
-   - [Python](https://www.python.org/): official documentatoin and tutorial
+   - [Python](https://www.python.org/): official documentation and tutorial
    - [Jupyter](https://jupyter.org/): web notebook interface, reproducible 
      research
    - [A Byte of Python](https://python.swaroopch.com/)
