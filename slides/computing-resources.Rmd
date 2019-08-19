@@ -1,0 +1,154 @@
+---
+title: "Computing Bootcamp 2019"
+subtitle: "IT Orientation"
+author: "Zoyia Melton"
+institute: ""
+date: "08-19-19"
+output:
+  xaringan::moon_reader:
+    css: ["default", "slides.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE,
+                      fig.width = 7, fig.height = 5)
+```
+
+## Welcome To StatSci
+
+How to get IT Help within StatSci
+  - email:  stat-help@duke.edu
+  
+Zoyia Melton
+
+  - Phone: 919.684.5419
+  - Location: 027 Old Chem
+  - Office Hours: Mon – Thu 10AM-3PM
+
+Frisco Rose
+
+  - Phone: 919.660.5496
+  - Location: 026 Old Chem
+  - Office Hours: Wed & Fri 10AM-3PM
+
+
+---
+
+## Duke OIT help
+
+- Duke OIT (Office of Information Technology) 
+
+    - manages Duke’s technology infrastructure and application 	support
+    
+    - https://oit.duke.edu/help
+    
+    - Location: Service Desk  - Link@Perkins Library 
+    
+---
+
+## Your NetID
+
+- NetID is the electronic key to making many Duke resources work.  Make sure your Duke Account has been setup.
+
+    - Changing Password
+    
+    - Change Challenge questions
+    
+    - Setup MFA 
+    
+- https://idms-web.oit.duke.edu/portal/
+
+- https://oit.duke.edu/help
+
+---
+
+## StatSci resources
+
+- RStudio
+
+    - https://pawn.stat.duke.edu:8787
+    
+    - https://knight.stat.duke.edu:8787
+
+    - https://rook.stat.duke.edu:8787
+
+- Local file system on StatSci Servers
+	  - Your files are only on the StatSci Servers
+
+---
+
+## Duke's OIT resources
+
+- Virtual Computing: Here you can get Virtual Software Containers and Semester-long virtual machines.
+
+- Virtual Software Containers – like using desktop software but from your browser without installing it on your local machine. 
+https://vm-manage.oit.duke.edu/containers
+
+- Virtual Machine – is like a second desktop it can either Windows or Linus (2 cores/2GB mem) https://vcm.duke.edu/
+
+---
+
+## Duke OIT software
+
+- Duke Software for Students, Faculty, and Staff
+
+- Duke negotiates with vendors to make software available to the Duke community for discounted rates or, in many cases, for free. If you have any questions, comments or suggestions, please e-mail the site-license office at site@duke.edu.
+
+- https://software.duke.edu/
+
+---
+
+## Duke email
+
+- With your NetID you can access your using any email client or the web: http://mail.duke.edu
+
+- Other email clients help and suggestions are located
+https://stat.duke.edu/resources/email
+
+- StatSci email aliases
+https://stat.duke.edu/resources/email/aliases
+
+<br><br><br>
+
+**Note Your Duke email is not permanent; your account expires once you leave Duke**
+
+---
+
+## Duke WiFi
+
+- Dukeblue:
+
+    - 24-hour access to secure (encrypted) wireless throughout Duke's residence halls, academic and administrative buildings.
+
+- DukeOpen:
+
+    - Unencrypted wireless access for devices such as gaming systems, or other devices.
+
+- Eduroam(education roaming):
+
+    - Secure (encrypted) wireless access using your Duke NetID and password. To use eduroam at a participating institution, you should configure your machine ahead of time while at Duke. https://dukeblue.duke.edu/eduroam/
+    
+---
+
+## Duke VPN
+
+- A virtual private network (VPN) allows you to create a secure connection from your computer to Duke over a public network while working remotely.
+
+- You must login via the VPN to access StatSci servers
+
+- https://oit.duke.edu/what-we-do/services/vpn
+
+---
+
+class: inverse, middle center
+
+# Questions?
+
+
+
+
