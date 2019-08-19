@@ -398,7 +398,7 @@ gap <- read_csv("https://bit.ly/gap_data")
 
 Function `read_csv()` is part of package `readr`, which is automatically loaded
 from package `tidyverse`. Function `read_csv()` not only reads in the data, but
-it ensures object `gap` is a neatly formated data frame - known as a tibble.
+it ensures object `gap` is a neatly formatted data frame - known as a tibble.
 
 ---
 
@@ -736,7 +736,7 @@ Always use them. Period.
     - Data Transformation Cheat Sheet
     - Data Visualization Cheat Sheet
     
-Some of the above cheatsheers are availalbe in RStudio: `Help > Cheatsheets`
+Some of the above cheat sheets are available in RStudio: `Help > Cheatsheets`
 
 
 ---
@@ -864,7 +864,7 @@ which git
 
 - [Git cheatsheet](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet) by Atlassian
 
-- GitHub's iteractive [tutorial](https://try.github.io/)
+- GitHub's interactive [tutorial](https://try.github.io/)
 
 - [Free online course](https://www.udacity.com/course/version-control-with-git--ud123) from Udacity
 
