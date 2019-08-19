@@ -27,7 +27,7 @@ class: inverse, center, middle
 
 ## GitHub account
 
-A couple things to get everyone on the same page
+To get everyone on the same page
 
 - If you don't have one, sign up for a GitHub account (it takes 1 min.)
     - Go to https://github.com/join
@@ -744,14 +744,6 @@ Some of the above cheat sheets are available in RStudio: `Help > Cheatsheets`
 class: inverse, center, middle
 
 # Version control with git and GitHub
-
----
-
-## Why version control?
-
-.center.middle[
-![](img/why-vc.jpeg)
-]
 
 ---
 
