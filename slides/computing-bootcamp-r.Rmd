@@ -57,9 +57,9 @@ A few suggestions on picking a GitHub username:
 
 For today, the preferred method is to use DSS RStudio servers:
 
-- PhD: https://smith.stat.duke.edu:8787/
-- MS: https://saxon.stat.duke.edu:8787/
-- UG: https://gort.stat.duke.edu:8787/
+- PhD: https://knight.stat.duke.edu:8787/
+- MS: https://rook.stat.duke.edu:8787/
+- UG: https://pawn.stat.duke.edu:8787/
 
 Log in with your Duke `netid` and password
     
@@ -309,9 +309,9 @@ R.
 
 For today, the preferred method is to use DSS RStudio servers:
 
-- PhD: https://smith.stat.duke.edu:8787/
-- MS: https://saxon.stat.duke.edu:8787/
-- UG: https://gort.stat.duke.edu:8787/
+- PhD: https://knight.stat.duke.edu:8787/
+- MS: https://rook.stat.duke.edu:8787/
+- UG: https://pawn.stat.duke.edu:8787/
 
 Log in with your Duke `netid` and password
     
