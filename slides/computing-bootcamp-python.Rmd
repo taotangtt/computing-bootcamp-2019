@@ -773,9 +773,21 @@ def prime_count(k):
 prime_count(k = 1000)
 ```
 
+---
 
+class: inverse, center, middle
 
+# Mutable versus immutable objects
 
+---
+
+## Object types
+
+- Immutable objects: int, float, long, complex, string tuple, bool
+
+- Mutable objects: list, dict, set, byte array, user-defined classes
+
+- Live demo of what Python is doing with function `id()`.
 
 ---
 
