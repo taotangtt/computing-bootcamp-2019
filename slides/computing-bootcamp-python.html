@@ -12,7 +12,7 @@
 class: center, middle, inverse, title-slide
 
 # Computing Bootcamp 2019
-## Python and Jupyter Notebooks
+## Python and Jupyter Notebook
 ### Shawn Santo
 ### 08-19-19
 
@@ -45,11 +45,12 @@ To follow along and be active you have a few options.
     2. Download Python 3.x version based on your OS
     3. Follow install instructions at https://docs.anaconda.com/anaconda/install/
     
-- Use RStudio (run Python, but no Jupyter notebook)
+- Use RStudio with R Markdown (run Python, but no Jupyter notebook)
 
-    1. Log in to DSS RStudio server
+    1. Log in to the DSS RStudio server
     2. In an R Markdown file you can insert Python chunks instead of R chunks
     3. Click the dropdown arrow next to insert
+    
 ---
 
 class: inverse, center, middle
@@ -150,17 +151,19 @@ one easy to read document that is reproducible and easy to share with others.
 - A Jupyter notebook does not knit into an HTML, PDF or Word file. However, you
 can embeed HTML into a notebook.
 
--
+- For a more detailed comparison see [The First Notebook War](https://yihui.name/en/2018/09/notebook-war/)
 
 ---
 
 class: inverse, center, middle
 
-# Basics
+# Python basics
 
 ---
 
 ## Operators
+
+Python supports basic arithmetic operations.
 
 
 ```python
@@ -323,7 +326,7 @@ you set a variable TRUE = True which is something you probably shouldn't do.
 |:----------------:|:-------:|:--------------:|
 |             true |  `True` |  `TRUE` or `T` |
 |            false | `False` | `FALSE` or `F` |
-|               or |   `or`  |       `|`      |
+|               or |   `or`  |      `\(\vert\)`   |
 |              and |  `and`  |       `&amp;`      |
 |              not |  `not`  |       `!`      |
 |           modulo |   `%`   |      `%%`      |
@@ -414,15 +417,15 @@ class: inverse, center, middle
 
 ## Built-in data structures
 
-Python has four built-in data structures
+Python has four built-in data structures.
 
-- Lists: an ordered collection of items, mutable
+- List: an ordered collection of items, mutable
 &lt;br&gt;&lt;br&gt;
-- Tuples: an immutable list
+- Tuple: an immutable list
 &lt;br&gt;&lt;br&gt;
-- Dictionaries: an unordered collection of key-value pairs
+- Dictionary: an unordered collection of key-value pairs
 &lt;br&gt;&lt;br&gt;
-- Sets: unordered collection of unique objects
+- Set: unordered collection of unique objects
 
 ---
 
@@ -451,11 +454,11 @@ my_list2[0]
 ```
 
 ```python
-my_list2[1]
+my_list2[1:3]
 ```
 
 ```
-[1, 1, 1]
+[[1, 1, 1], 10]
 ```
 
 ```python
@@ -472,7 +475,8 @@ my_list2[-1]
 
 - A tuple looks just like a list, but we use ( ) instead of [ ].
 
-- Remember: tuples are immutable, you won't be able to change individual values
+- Remember: **tuples are immutable**, you won't be able to change 
+  individual values
 
 
 ```python
@@ -512,7 +516,7 @@ Detailed traceback:
 
 
 ```python
-my_bike = {"model": "trek", "color": "lime green", "size": 56, "style": "gravel"}
+my_bike = {"model": "trek", "style": "gravel"}
 
 my_bike["model"]
 ```
@@ -527,7 +531,7 @@ my_bike
 ```
 
 ```
-{'model': 'trek', 'color': 'lime green', 'size': 56, 'style': 'gravel', 'year': 2019}
+{'model': 'trek', 'style': 'gravel', 'year': 2019}
 ```
 
 ---
@@ -545,7 +549,7 @@ my_set
 ```
 
 ```
-{'d', 'a', 'b', 'c'}
+{'a', 'b', 'c', 'd'}
 ```
 
 ```python
@@ -562,7 +566,7 @@ my_set2
 ```
 
 ```
-{'a', 'e', 'b', 'c', 'd'}
+{'c', 'b', 'a', 'd', 'e'}
 ```
 
 ---
@@ -621,7 +625,7 @@ my_courses
 
 ---
 
-## More methods in action
+## Attributes and methods in action
 
 
 ```python
@@ -669,7 +673,7 @@ my_string.count("o")
 ### Task 1
 
 Create a variable and each of the four built-in data structures (list, tuple,
-dictionary, set). For each object use two methods and document in markdown the
+dictionary, set). For each object, use two methods and document in markdown the
 functionality of the two methods.
 
 ### Task 2
@@ -700,7 +704,9 @@ class: inverse, center, middle
 - The syntax style of control flow in Python is based off `:` and indented
   spaces. Python does not wrap code blocks for control flow with `{ }` as is
   done in R.
-- This has plusses and minuses
+  
+- This has pluses and minuses
+
 - There is no `switch` statement and no `repeat` statement
 
 ---
@@ -833,8 +839,7 @@ squares
 
 
 ```python
-d = {"language": "python", "version": 3.7, 
-      "year": 1989, "creator": "Guido van Rossum"}
+d = {"language": "python", "version": 3.7, "year": 1989, "creator": "Guido van Rossum"}
       
 for k, v in d.items():
   print("The key is {}, and its value is {}.".format(k, v))
@@ -1031,66 +1036,28 @@ def is_prime(n):
 
 
 ```python
-x = 10
+a = 0
+b = 1
 
-def f(x):
-  print("The value of x on line 1 is: {}".format(x))
-  x += x
-  print("The value of x on line 3 is: {}".format(x))
-  
-f(x = x)
-  
+def my_function():
+    print("The value of b is {}.\n".format(b))
+    a = 3
+    print("From inside the function a is {}.".format(a))
+
+my_function()
+
+print("From outside the function a is {}.".format(a))
 ```
 
-```
-The value of x on line 1 is: 10
-The value of x on line 3 is: 20
-```
-
-```python
-print("The value of x after the function has run is: {}".format(x))
-  
-```
 
 ```
-The value of x after the function has run is: 10
-```
+The value of b is 1.
 
----
-
-## Function scope
-
-
-```python
-my_list = list("abcd")
-print(my_list)
+From inside the function a is 3.
 ```
 
 ```
-['a', 'b', 'c', 'd']
-```
-
-```python
-def g(y):
-  y.pop()
-  print(y)
-  print(my_list)
-  return y
-  
-new_list = g(y = my_list)
-```
-
-```
-['a', 'b', 'c']
-['a', 'b', 'c']
-```
-
-```python
-print(new_list)
-```
-
-```
-['a', 'b', 'c']
+From outside the function a is 0.
 ```
 
 ---
@@ -1284,6 +1251,8 @@ to allow for inline plotting.
 %matplotlib inline
 ```
 
+Let's plot a heatmap based on a 20 by 20 grid of random numbers.
+
 
 ```python
 data = np.random.rand(20, 20)
@@ -1294,6 +1263,9 @@ plt.colorbar()
 ---
 
 ## Example
+
+Create a histogram based off of 5000 randomly generated standard normal
+variables.
 
 
 ```python
@@ -1361,9 +1333,9 @@ class: inverse, center, middle
 
 - https://jupyter.org/
 
-- Python Crash Course by Eric Matthes
+- [Python Crash Course](https://ehmatthes.github.io/pcc/) by Eric Matthes
 
-- A Byte of Python by Swaroop C H
+- [A Byte of Python](https://python.swaroopch.com/) by Swaroop C H
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
